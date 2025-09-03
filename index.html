@@ -1,1 +1,183 @@
 
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FKQ0VK9CZR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FKQ0VK9CZR');
+</script>
+
+  <meta charset="UTF-8">
+  <title>Andreas Veronese</title>
+  <style>
+    /* ---- Grundstil ---- */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #1a1a40, #3a0ca3, #7209b7);
+      background-size: 1200% 1200%;
+      animation: gradientShift 30s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ---- Banner ---- */
+    .banner {
+      padding: 40px 30px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+      margin-bottom: 40px;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .banner h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin: 0 0 15px 0;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #00f2fe, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    .banner p {
+      font-size: 20px;
+      font-weight: 300;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
+      to { text-shadow: 0 0 20px rgba(0, 242, 254, 0.9); }
+    }
+
+    /* ---- Kort-länkar ---- */
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 25px;
+      max-width: 800px;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      border-radius: 15px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      background: linear-gradient(145deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 10px rgba(79, 172, 254, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, #00f2fe, #4facfe, #00f2fe);
+      animation: rotate 6s linear infinite;
+      opacity: 0.15;
+    }
+
+    .card img {
+      width: 70px;
+      height: auto;
+      margin-bottom: 12px;
+      z-index: 1;
+      filter: brightness(0.9);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .card span {
+      z-index: 1;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+      border: 1px solid rgba(0,242,254,0.6);
+    }
+
+    .card:hover img {
+      filter: brightness(1.2);
+      transform: scale(1.1);
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <h1>Andreas Veronese</h1>
+    <p>Berghs Growth Marketing</p>
+  </div>
+
+  <div class="links">
+    <a href="https://growthhackers.se" class="card" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GrowthHackers">
+      <span>GrowthHackers</span>
+    </a>
+    <a href="https://www.hubspot.com" class="card" target="_blank">
+      <img src="https://seeklogo.com/images/H/hubspot-logo-770E7D9B4F-seeklogo.com.png" alt="HubSpot">
+      <span>HubSpot</span>
+    </a>
+    <a href="https://neilpatel.com/what-is-growth-marketing/" class="card" target="_blank">
+      <img src="https://seeklogo.com/images/N/neil-patel-logo-0F30ECF0D1-seeklogo.com.png" alt="Neil Patel">
+      <span>Neil Patel</span>
+    </a>
+    <a href="https://www.growthmarketingpro.com/" class="card" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2965/2965358.png" alt="Growth Marketing Pro">
+      <span>Growth Marketing Pro</span>
+    </a>
+  </div>
+</body>
+</html>
+
+
+
+
+
