@@ -1,185 +1,178 @@
-
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TS9PJRLQ');</script>
-<!-- End Google Tag Manager -->
-
   <meta charset="UTF-8">
-  <title>ANDREAS VERONESE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andreas Veronese - Growth Marketer Portfolio</title>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
+
   <style>
-    /* ---- Grundstil ---- */
     body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Helvetica Neue', sans-serif;
+      padding: 0;
+      line-height: 1.6;
+      background: radial-gradient(circle at top left, #0f172a, #1e293b, #0f172a);
+      color: #e2e8f0;
+    }
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6, #06b6d4);
       color: #fff;
+      padding: 3rem 1rem;
       text-align: center;
-      background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #1a1a40, #3a0ca3, #7209b7);
-      background-size: 1200% 1200%;
-      animation: gradientShift 30s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* ---- Banner ---- */
-    .banner {
-      padding: 40px 30px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      backdrop-filter: blur(12px);
-      margin-bottom: 40px;
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .banner h1 {
-      font-size: 48px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      margin: 0 0 15px 0;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #00f2fe, #4facfe, #00f2fe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glow 3s ease-in-out infinite alternate;
-    }
-
-    .banner p {
-      font-size: 20px;
-      font-weight: 300;
-      opacity: 0.9;
-      margin: 0;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
-      to { text-shadow: 0 0 20px rgba(0, 242, 254, 0.9); }
-    }
-
-    /* ---- Kort-länkar ---- */
-    .links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 25px;
-      max-width: 800px;
-      width: 100%;
-      padding: 0 20px;
-    }
-
-    .card {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      border-radius: 15px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      background: linear-gradient(145deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 0 10px rgba(79, 172, 254, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
       overflow: hidden;
     }
-
-    #card::before {
+    header::after {
       content: "";
       position: absolute;
-      top: -50%;
-      left: -50%;
+      top: -50px;
+      left: -50px;
       width: 200%;
       height: 200%;
-      background: conic-gradient(from 0deg, #00f2fe, #4facfe, #00f2fe);
-      animation: rotate 6s linear infinite;
-      opacity: 0.15;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.01%);
+      background-size: 40px 40px;
+      animation: moveBackground 30s linear infinite;
+      z-index: 0;
     }
-
-    .card img {
-      width: 70px;
-      height: auto;
-      margin-bottom: 12px;
+    @keyframes moveBackground {
+      from { transform: translate(0,0); }
+      to { transform: translate(40px,40px); }
+    }
+    header img {
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      position: relative;
       z-index: 1;
-      filter: brightness(0.9);
-      transition: filter 0.3s ease, transform 0.3s ease;
     }
-
-    .card span {
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      position: relative;
       z-index: 1;
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
-
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.3rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+      border-left: 4px solid #0ea5e9;
+      padding-left: 0.5rem;
+      text-shadow: 0 0 5px rgba(14,165,233,0.5);
+    }
+    .card {
+      background: #1e293b;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
     .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
-      border: 1px solid rgba(0,242,254,0.6);
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 8px 30px rgba(56,189,248,0.3);
     }
-
-    .card:hover img {
-      filter: brightness(1.2);
-      transform: scale(1.1);
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0f172a;
+      color: #94a3b8;
+      margin-top: 3rem;
     }
-
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    a {
+      color: #38bdf8;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS9PJRLQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <div class="banner">
-    <h1>Andreas Veronese</h1>
-    <p>Berghs Growth Marketing</p>
-  </div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-  <div class="links">
-    <a href="https://growthhackers.se" class="card growthhackers" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GrowthHackers">
-      <span>GrowthHackers</span>
-    </a>
-    <a href="https://www.hubspot.com" class="card" target="_blank">
-      <img src="https://seeklogo.com/images/H/hubspot-logo-770E7D9B4F-seeklogo.com.png" alt="HubSpot">
-      <span>HubSpot</span>
-    </a>
-    <a href="https://neilpatel.com/what-is-growth-marketing/" class="card" target="_blank">
-      <img src="https://seeklogo.com/images/N/neil-patel-logo-0F30ECF0D1-seeklogo.com.png" alt="Neil Patel">
-      <span>Neil Patel</span>
-    </a>
-    <a href="https://www.growthmarketingpro.com/" class="card" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2965/2965358.png" alt="Growth Marketing Pro">
-      <span>Growth Marketing Pro</span>
-    </a>
-  </div>
+  <header>
+    <img width="200" height="200" src="https://media.licdn.com/dms/image/v2/D4D03AQGyWE83V8Bh4Q/profile-displayphoto-shrink_400_400/B4DZWvKoevHIAg-/0/1742400555584?e=1761177600&amp;v=beta&amp;t=xi9-12CDbhRtynX1r-VtSj1xwK96HTcGqooiGuIiitw" alt="Andreas Veronese">
+    <h1>Andreas Veronese</h1>
+    <p>Growth Marketer – student på Berghs School of Communication</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Om mig</h2>
+      <div class="card">
+        <p>Jag har en bakgrund inom försäljning, prissättning och e-commerce. Med erfarenhet från roller inom B2B, SEO, innehållsoptimering och digital marknadsföring har jag utvecklat en stark analytisk förmåga. Jag brinner för att kombinera data och kreativitet för att driva mätbara resultat och skapa tillväxt. Just nu vidareutvecklar jag mina kompetenser inom <strong>Growth Marketing</strong> på Berghs SOC.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Erfarenhet ur ett Growth Marketing-perspektiv</h2>
+      <div class="card">
+        <h3>Toyota Material Handling Europe – SEO & E-commerce Management</h3>
+        <p>Arbetade med analys och optimering av Toyota UK:s webbplats för att driva organisk trafik och öka konvertering. Fokus på keyword research, innehållsoptimering och implementation av SEO-förbättringar i CMS.</p>
+      </div>
+      <div class="card">
+        <h3>Toyota Material Handling Sweden – E-commerce & Inbound Marketing</h3>
+        <p>Deltog i marknadsföringsprojekt, SEO-optimering och kundanalys i CRM. Bidrog till utveckling av marknadsstrategier för att nå nya kunder.</p>
+      </div>
+      <div class="card">
+        <h3>Onninen Sverige AB – Pricing Controller</h3>
+        <p>Ansvarade för prissättningsstrategier och analyser för att stödja säljorganisationen. Rollen utvecklade min förmåga att arbeta datadrivet för att skapa lönsam tillväxt.</p>
+      </div>
+      <div class="card">
+        <h3>Onninen Sverige AB – Innesäljare B2B / SAP Specialist</h3>
+        <p>Byggde kundrelationer, hanterade offertförfrågningar och stödde kollegor i ERP-system. Erfarenhet av affärsutveckling och kunddrivna processer.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Utbildning & Certifieringar</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Pågående:</strong> Growth Marketing – Berghs School of Communication (2025)</li>
+          <li>IHM Business School – E-commerce Logistics/Affärsutveckling (2022–2024)</li>
+          <li>Hubspot – SEO Certificate (2025)</li>
+          <li>Google – Digital Marketing Certificate (2023)</li>
+          <li>Excel Advanced Formulas & Functions (2022)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Kontakt</h2>
+      <div class="card">
+        <p>Telefon: 0735997703</p>
+        <p>Email: <a href="mailto:andreas.veronese90@gmail.com">andreas.veronese90@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/andreas-veronese/" target="_blank">linkedin.com/in/andreas-veronese</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Andreas Veronese - Growth Marketer</p>
+  </footer>
 </body>
 </html>
-
-
-
-
-
