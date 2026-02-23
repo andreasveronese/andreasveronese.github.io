@@ -359,7 +359,7 @@
   <main class="wrap">
     <header class="topbar">
       <p>Andreas Veronese / Growth Marketer / Stockholm</p>
-      <a href="https://www.linkedin.com/in/andreas-veronese-bb5198b3/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/andreas-veronese-bb5198b3/" id="linkedin-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </header>
 
     <section class="hero">
@@ -492,5 +492,27 @@
       </p>
     </footer>
   </main>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  
+  var linkedinLink = document.getElementById("linkedin-link");
+  
+  if (linkedinLink) {
+    linkedinLink.addEventListener("click", function () {
+      
+      window.dataLayer = window.dataLayer || [];
+      
+      window.dataLayer.push({
+        event: "linkedin_click",
+        link_url: this.href,
+        link_text: this.innerText
+      });
+      
+      console.log("LinkedIn click tracked");
+    });
+  }
+
+});
+</script>
 </body>
 </html>
