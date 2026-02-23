@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body { font-family: Arial, sans-serif; width: 380px; padding: 12px; }
+    h2 { margin: 0 0 10px; }
+    button { padding: 10px; width: 100%; cursor: pointer; border-radius: 10px; border: 1px solid #ddd; }
+    .muted { color:#666; font-size: 12px; }
+    .row { display:flex; gap:10px; align-items:center; justify-content: space-between; margin-top: 10px; }
+    .score {
+      font-size: 28px; font-weight: 800;
+      padding: 6px 12px; border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      min-width: 92px; text-align:center;
+    }
+    .score.good { background:#ecfdf5; color:#065f46; border-color:#a7f3d0; }
+    .score.warn { background:#fffbeb; color:#92400e; border-color:#fcd34d; }
+    .score.bad  { background:#fef2f2; color:#991b1b; border-color:#fecaca; }
+
+    .card { border:1px solid #e5e7eb; border-radius: 12px; padding: 10px; margin-top: 10px; background:#fff; }
+    .sectionTitle { margin: 0 0 8px; font-size: 13px; font-weight: 800; letter-spacing: .3px; text-transform: uppercase; color:#374151; }
+
+    .tag { display:inline-block; padding:3px 8px; border:1px solid #ddd; border-radius:999px; margin:2px; font-size:12px; background:#f9fafb; }
+    .kpi { display:flex; align-items:center; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f1f5f9; }
+    .kpi:last-child { border-bottom: none; }
+    .label { color:#111827; font-size: 13px; }
+    .value { font-weight: 700; font-size: 13px; }
+    .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; font-weight: 700; }
+    .ok { background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; }
+    .warn { background:#fffbeb; color:#92400e; border:1px solid #fcd34d; }
+    .bad { background:#fef2f2; color:#991b1b; border:1px solid #fecaca; }
+
+    ul { margin: 6px 0 0; padding-left: 18px; }
+    li { margin: 4px 0; font-size: 13px; color:#111827; }
+    code { font-size: 12px; background: #f3f4f6; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h2>Website Snapshot</h2>
+  <button id="scanBtn">Scan this page</button>
+  <p id="status" class="muted"></p>
+
+  <div id="results" style="display:none;">
+    <div class="row">
+      <div>
+        <div class="muted">Overall score</div>
+        <div id="scoreHint" class="muted"></div>
+      </div>
+      <div id="scoreBox" class="score">—</div>
+    </div>
+
+    <div class="card">
+      <div class="sectionTitle">Tech detected</div>
+      <div id="tech"></div>
+    </div>
+
+    <div class="card">
+      <div class="sectionTitle">SEO</div>
+      <div id="seo"></div>
+    </div>
+
+    <div class="card">
+      <div class="sectionTitle">Growth signals</div>
+      <div id="growth"></div>
+    </div>
+
+    <div class="card">
+      <div class="sectionTitle">Top 3 recommendations</div>
+      <ul id="recs"></ul>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

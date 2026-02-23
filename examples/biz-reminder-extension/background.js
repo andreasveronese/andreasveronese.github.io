@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Website Intelligence Snapshot",
+  "version": "0.1.0",
+  "description": "Instant website audit for sales and growth teams.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Snapshot",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

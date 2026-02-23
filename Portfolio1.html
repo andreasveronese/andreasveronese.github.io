@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- Google Tag Manager -->
+ <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+ })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+ <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio av Andreas Veronese, Growth Marketer. Case inom strategi, kampanj och varumärkesarbete.">
+  <title>Andreas Veronese | Growth Marketer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --ink: #0f0f0f;
+      --muted: #5d5d5d;
+      --line: #171717;
+      --panel: #fbfaf7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+      padding: 1.2rem 0 4rem;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .topbar a {
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .topbar a:hover {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .hero {
+      padding: 2.5rem 0 2.2rem;
+      border-bottom: 1px solid var(--line);
+      animation: appear 700ms ease both;
+    }
+
+    .hero h1 {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.92;
+      font-size: clamp(2.5rem, 9vw, 7.8rem);
+      max-width: 11ch;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .hero-meta p {
+      font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+      color: #1f1f1f;
+      max-width: 58ch;
+    }
+
+    .spaced {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.42em;
+      color: var(--muted);
+      text-align: right;
+      align-self: end;
+    }
+
+    .ticker {
+      margin: 1.8rem 0 0;
+      border-block: 1px solid var(--line);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-block;
+      padding: 0.7rem 0;
+      animation: slide 20s linear infinite;
+      font-family: "Syne", sans-serif;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .section {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .section-title {
+      font-family: "Syne", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+    }
+
+    .section-number {
+      font-family: "Syne", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .cases {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .case {
+      grid-column: span 6;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      transition: transform 220ms ease, box-shadow 220ms ease;
+      animation: appear 700ms ease both;
+    }
+
+    .case:nth-child(2) { animation-delay: 70ms; }
+    .case:nth-child(3) { animation-delay: 140ms; }
+    .case:nth-child(4) { animation-delay: 210ms; }
+    .case:nth-child(5) { animation-delay: 280ms; }
+
+    .case:hover {
+      transform: translateY(-4px);
+      box-shadow: none;
+    }
+
+    .case-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--line);
+      filter: grayscale(100%);
+      transition: filter 260ms ease;
+      background: #efefef;
+    }
+
+    .case:hover .case-image {
+      filter: grayscale(0%);
+    }
+
+    .case-info {
+      padding: 0.95rem;
+    }
+
+    .case-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+      display: inline-block;
+    }
+
+    .case h3 {
+      font-family: "Syne", sans-serif;
+      font-size: 1.12rem;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .case p {
+      color: #2e2e2e;
+      font-size: 0.93rem;
+    }
+
+    .method {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      padding: 1rem;
+      background: #fff;
+      min-height: 160px;
+    }
+
+    .step strong {
+      font-family: "Syne", sans-serif;
+      font-size: 0.84rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 0.7rem;
+    }
+
+    .step h3 {
+      font-family: "Syne", sans-serif;
+      text-transform: uppercase;
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: #2f2f2f;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 1.4rem;
+      align-items: start;
+    }
+
+    .about h3 {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.3rem, 2.3vw, 2rem);
+      text-transform: uppercase;
+      line-height: 1.08;
+    }
+
+    .about p {
+      font-size: 0.98rem;
+      color: #232323;
+      max-width: 72ch;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .footer a:hover {
+      border-color: var(--ink);
+    }
+
+    @keyframes slide {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-meta,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .spaced {
+        text-align: left;
+      }
+
+      .method {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .case {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .method {
+        grid-template-columns: 1fr;
+      }
+
+      .ticker-track {
+        font-size: 0.78rem;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+ <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ <!-- End Google Tag Manager (noscript) -->
+  <main class="wrap">
+    <header class="topbar">
+      <p>Andreas Veronese / Growth Marketer / Stockholm</p>
+      <a href="https://www.linkedin.com/in/andreas-veronese-bb5198b3/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </header>
+
+    <section class="hero">
+      <h1>
+        <span>Creative</span>
+        <span>Growth</span>
+        <span>Portfolio</span>
+      </h1>
+      <div class="hero-meta">
+        <p>
+          Jag driver tillväxt genom datadriven analys, hypotesbaserad testning och kontinuerlig optimering.
+          Arbetar strukturerat med kundresor, konvertering och kanalstrategi för att identifiera tillväxtmöjligheter och skala det som ger effekt.
+          Nedan presenteras case med fokus på analys, experimentering och mätbar affärsnytta.
+        </p>
+        <p class="spaced">Andreas Veronese Growth Marketer</p>
+      </div>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          Analys / Experimentering / Hypoteser / Acquisition / Aktivering / Retention / Konvertering / Optimering / Skalning / CRM / Personalisering / Lönsamhet / Attribution / Datakvalitet / Growth loops / Analys / Experimentering / Hypoteser / Acquisition / Aktivering / Retention / Konvertering / Optimering / Skalning / CRM / Personalisering / Lönsamhet / Attribution / Datakvalitet / Growth loops /
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="case">
+      <div class="section-head">
+        <h2 class="section-title">Utvalda Case</h2>
+        <p class="section-number">01</p>
+      </div>
+
+      <div class="cases" aria-label="Case galleri">
+        <article class="case">
+          <img class="case-image" src="Ava.svg" alt="Case: Akademibokhandeln">
+          <div class="case-info">
+            <span class="case-tag">Case inom SEO &amp; Content Marketing</span>
+            <h3>Akademibokhandeln</h3>
+            <p>Varumärkes- och konceptarbete med tydlig visuell riktning och kommunikativ tonalitet.</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <img class="case-image" src="Stadium Play.svg" alt="Case: Stadium Play">
+          <div class="case-info">
+            <span class="case-tag">Case inom CRM &amp; kundlojalitet</span>
+            <h3>Stadium</h3>
+            <p>Stadium Play – en gamifierad medlemsplattform där sportfans kan engagera sig genom matchpredictions och community-aktiviteter, i syfte att öka lojalitet, CLV och samla in värdefull förstapartsdata.</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <img class="case-image" src="Fotografiska.svg" alt="Case: Fotografiska">
+          <div class="case-info">
+            <span class="case-tag">Communication according to Berghs</span>
+            <h3>Fotografiska</h3>
+            <p>Strategiskt case med analys, kreativt ramverk och tydlig storytelling.</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <img class="case-image" src="DryPops presentation.svg" alt="Case: DryPops Presentation">
+          <div class="case-info">
+            <span class="case-tag">Case inom Performance Marketing</span>
+            <h3>DryPops</h3>
+            <p>Pitchmaterial med fokus på positionering, erbjudande och tillväxtpotential.</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <img class="case-image" src="UNDER YOUR SKIN.svg" alt="Case: Under Your Skin">
+          <div class="case-info">
+            <span class="case-tag">Case i CRO &amp; analys</span>
+            <h3>Under Your Skin</h3>
+            <p>Projektet fokuserade på att genom datadriven analys och hypotesbaserad A/B-testning optimera produktdetaljsidorna för Under Your Skin, i syfte att minska friktion, öka add-to-cart och driva högre konvertering.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Min Metod</h2>
+        <p class="section-number">02</p>
+      </div>
+      <div class="method">
+        <article class="step">
+          <strong>#01</strong>
+          <h3>Strategi</h3>
+          <p>Identifierar rätt målgrupp, rätt budskap och rätt position för snabbare effekt.</p>
+        </article>
+        <article class="step">
+          <strong>#02</strong>
+          <h3>Content</h3>
+          <p>Skapar idéer och format som fångar uppmärksamhet och bygger varumärke.</p>
+        </article>
+        <article class="step">
+          <strong>#03</strong>
+          <h3>Experimentering</h3>
+          <p>Formulerar hypoteser, testar strukturerat och prioriterar det som ger mätbar effekt.</p>
+        </article>
+        <article class="step">
+          <strong>#04</strong>
+          <h3>Optimering</h3>
+          <p>Följer data löpande och förbättrar varje touchpoint för bättre resultat.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Om Mig</h2>
+        <p class="section-number">03</p>
+      </div>
+      <div class="about">
+        <h3>Growth med kreativ höjd och affärsfokus</h3>
+        <p>
+          Jag har bakgrund inom e-commerce, SEO, prissättning och B2B-försäljning.
+          Mitt arbete är datadrivet men alltid kreativt förankrat, med målet att bygga varumärken
+          som både känns och konverterar. På Berghs fördjupar jag mig inom Growth Marketing och
+          applicerar det direkt i praktiska case.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 Andreas Veronese</p>
+      <p>
+        <a href="mailto:andreas.veronese90@gmail.com">andreas.veronese90@gmail.com</a>
+        /
+        <a href="tel:+46735997703">073 599 77 03</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

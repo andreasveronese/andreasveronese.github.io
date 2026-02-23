@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz | Är du redo att bli djurförälder?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #f8f2e8;
+      --bg-2: #f6c388;
+      --ink: #181818;
+      --muted: #6b645d;
+      --card: #ffffff;
+      --line: #ede6db;
+      --accent: #f08700;
+      --accent-2: #0f0f0f;
+      --ok: #006d4b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 15%, rgba(255, 248, 234, 0.9) 0%, rgba(255, 248, 234, 0) 38%),
+        radial-gradient(circle at 90% 20%, rgba(244, 176, 94, 0.7) 0%, rgba(244, 176, 94, 0) 40%),
+        radial-gradient(circle at 50% 100%, rgba(255, 213, 153, 0.8) 0%, rgba(255, 213, 153, 0) 45%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      display: grid;
+      place-items: center;
+      padding: 24px 16px;
+    }
+
+    .paw-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(24, 24, 24, 0.04) 0 8px, transparent 9px),
+        radial-gradient(circle at 18% 17%, rgba(24, 24, 24, 0.04) 0 4px, transparent 5px),
+        radial-gradient(circle at 12% 17%, rgba(24, 24, 24, 0.04) 0 4px, transparent 5px),
+        radial-gradient(circle at 20% 23%, rgba(24, 24, 24, 0.04) 0 4px, transparent 5px),
+        radial-gradient(circle at 10% 23%, rgba(24, 24, 24, 0.04) 0 4px, transparent 5px);
+      background-size: 220px 220px;
+      opacity: 0.45;
+    }
+
+    .phone {
+      width: 100%;
+      max-width: 430px;
+      background: var(--card);
+      border-radius: 24px;
+      padding: 18px 14px;
+      box-shadow: 0 30px 80px rgba(48, 30, 7, 0.18);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .screen {
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      padding: 18px;
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .bar-wrap {
+      background: #f2eee7;
+      border-radius: 999px;
+      height: 6px;
+      width: 100%;
+      margin: 10px 0 18px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #ffb357, #f08700);
+      border-radius: inherit;
+      transition: width 0.35s ease;
+    }
+
+    .hero {
+      width: 100%;
+      border-radius: 14px;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 18px rgba(10, 10, 10, 0.12);
+    }
+
+    h1, h2 {
+      margin: 0 0 10px;
+      font-family: "Fraunces", Georgia, serif;
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.95rem;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: #4b453e;
+      line-height: 1.5;
+      font-size: 0.96rem;
+    }
+
+    .intro-text strong {
+      color: #1f1a14;
+    }
+
+    .email {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      background: #fcfbf9;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .email:focus {
+      border-color: #f0ac58;
+      box-shadow: 0 0 0 4px rgba(240, 172, 88, 0.2);
+      outline: 0;
+    }
+
+    .tiny {
+      font-size: 0.74rem;
+      color: #898176;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 4px 0 14px;
+    }
+
+    .opt {
+      width: 100%;
+      border: 1px solid #e9e2d7;
+      border-radius: 999px;
+      background: #fff;
+      color: #1d1a15;
+      padding: 13px 14px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .opt:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(16, 14, 11, 0.08);
+      border-color: #dccfbf;
+    }
+
+    .opt.is-picked {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+
+    .cta {
+      margin-top: auto;
+      width: 100%;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .cta:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(8, 8, 8, 0.24);
+    }
+
+    .cta:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .sub {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.73rem;
+      color: #93897c;
+    }
+
+    .frame {
+      display: none;
+      animation: pop-in 0.32s ease;
+      height: 100%;
+      flex-direction: column;
+    }
+
+    .frame.active {
+      display: flex;
+    }
+
+    @keyframes pop-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .score-pill {
+      align-self: flex-start;
+      background: #f6efe3;
+      border: 1px solid #ecdcc6;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.78rem;
+      margin-bottom: 12px;
+      color: #4f4638;
+      font-weight: 700;
+    }
+
+    .result-img {
+      width: 100%;
+      border-radius: 14px;
+      margin: 12px 0 8px;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+    }
+
+    .result-title {
+      margin-bottom: 6px;
+    }
+
+    .result-copy {
+      margin-bottom: 12px;
+    }
+
+    .stamp {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff5e6;
+      border: 2px solid #f2cc95;
+      color: var(--ok);
+      font-size: 1.3rem;
+      font-weight: 900;
+      animation: spin-in 0.5s ease 0.2s both;
+    }
+
+    @keyframes spin-in {
+      from {
+        opacity: 0;
+        transform: scale(0.4) rotate(-25deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    .confetti {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .confetti i {
+      position: absolute;
+      width: 8px;
+      height: 14px;
+      border-radius: 2px;
+      opacity: 0;
+      animation: float 1.4s ease forwards;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(-20px) rotate(0); opacity: 1; }
+      100% { transform: translateY(520px) rotate(260deg); opacity: 0; }
+    }
+
+    @media (max-width: 460px) {
+      .screen {
+        min-height: 585px;
+        padding: 15px;
+      }
+      h1, h2 {
+        font-size: 1.74rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="paw-layer" aria-hidden="true"></div>
+  <main class="phone">
+    <section class="screen">
+      <article class="frame active" data-step="0">
+        <div class="top">
+          <span>Steg 1 av 5</span>
+          <span>✕</span>
+        </div>
+        <img
+          class="hero"
+          src="https://placedog.net/1200/750?id=128"
+          onerror="this.onerror=null;this.src='https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=1200';"
+          alt="Glad hund i närbild">
+        <h1>Redo att bli djurförälder?</h1>
+        <p class="intro-text">
+          Testa din <strong>djurägar-instinkt</strong> på 3 minuter.
+          Svara på 3 scenarion och få ett personligt resultat.
+        </p>
+        <input class="email" type="email" id="email" placeholder="Din e-postadress" aria-label="Din e-postadress">
+        <button class="cta" id="startBtn">Starta quizet →</button>
+        <p class="tiny">Vi skickar ditt resultat till din mail.</p>
+      </article>
+
+      <article class="frame" data-step="1">
+        <div class="top">
+          <span>Steg 2 av 5</span>
+          <span>Fråga 1 av 3</span>
+        </div>
+        <div class="bar-wrap"><div class="bar" data-progress></div></div>
+        <h2>Scenario 1 - Trippelnöt Tjuven</h2>
+        <p>Det är julafton. Din hund har just ätit upp en hel ask choklad. Vad gör du?</p>
+        <div class="options" data-question="q1">
+          <button class="opt" data-score="0">Säger "nej" och hoppas det går över</button>
+          <button class="opt" data-score="1">Googlar panikartat</button>
+          <button class="opt" data-score="2">Ringer veterinär direkt</button>
+        </div>
+        <button class="cta next" disabled>Gå vidare →</button>
+        <p class="sub">Ett snabbt beslut kan göra hela skillnaden.</p>
+      </article>
+
+      <article class="frame" data-step="2">
+        <div class="top">
+          <span>Steg 3 av 5</span>
+          <span>Fråga 2 av 3</span>
+        </div>
+        <div class="bar-wrap"><div class="bar" data-progress></div></div>
+        <h2>Scenario 2 - Tuggmonstret</h2>
+        <p>Du kommer hem och din valp har tuggat sönder en strumpa. Sen börjar den kräkas. Vad gör du?</p>
+        <div class="options" data-question="q2">
+          <button class="opt" data-score="0">Väntar, det löser sig nog själv</button>
+          <button class="opt" data-score="2">Ringer veterinär och beskriver allt</button>
+          <button class="opt" data-score="1">Åker till akuten direkt utan att ringa</button>
+        </div>
+        <button class="cta next" disabled>Gå vidare →</button>
+        <p class="sub">Rätt info i rätt ordning hjälper veterinären snabbt.</p>
+      </article>
+
+      <article class="frame" data-step="3">
+        <div class="top">
+          <span>Steg 4 av 5</span>
+          <span>Fråga 3 av 3</span>
+        </div>
+        <div class="bar-wrap"><div class="bar" data-progress></div></div>
+        <h2>Scenario 3 - Balkongäventyret</h2>
+        <p>Din katt har trillat från balkongen. Den verkar okej, men är lite tystare än vanligt. Vad gör du?</p>
+        <div class="options" data-question="q3">
+          <button class="opt" data-score="0">Den landar ju alltid på fötterna</button>
+          <button class="opt" data-score="1">Väntar och ser</button>
+          <button class="opt" data-score="2">Kontaktar veterinär för kontroll</button>
+        </div>
+        <button class="cta next" disabled>Se mitt resultat →</button>
+        <p class="sub">Steg 4 av 5: Slutför analysen.</p>
+      </article>
+
+      <article class="frame" data-step="4">
+        <div class="top">
+          <span>Ditt resultat</span>
+          <span>⤴︎</span>
+        </div>
+        <div class="confetti" aria-hidden="true"></div>
+        <div class="stamp" aria-hidden="true">✓</div>
+        <h2 class="result-title">Resultat: du är en trygg djurhjälte</h2>
+        <p class="result-copy" id="resultCopy"></p>
+        <div class="score-pill" id="scorePill"></div>
+        <img
+          class="result-img"
+          src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80"
+          alt="Valp som ligger lugnt på en filt">
+        <button class="cta" id="restartBtn">Gör om testet ↻</button>
+        <p class="sub">Vill du gå djupare? Läs vår mini-guide för akuta lägen.</p>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const frames = Array.from(document.querySelectorAll(".frame"));
+    const progressBars = Array.from(document.querySelectorAll("[data-progress]"));
+    const optionGroups = Array.from(document.querySelectorAll(".options"));
+    const startBtn = document.getElementById("startBtn");
+    const restartBtn = document.getElementById("restartBtn");
+    const emailInput = document.getElementById("email");
+    const scorePill = document.getElementById("scorePill");
+    const resultCopy = document.getElementById("resultCopy");
+    const confettiHost = document.querySelector(".confetti");
+
+    const answers = {};
+    let currentStep = 0;
+
+    function goTo(step) {
+      currentStep = step;
+      frames.forEach((frame, index) => frame.classList.toggle("active", index === step));
+      const pct = step <= 1 ? 0 : Math.round(((step - 1) / 3) * 100);
+      progressBars.forEach((bar) => { bar.style.width = pct + "%"; });
+    }
+
+    function validateEmail() {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
+    }
+
+    startBtn.addEventListener("click", () => {
+      if (!validateEmail()) {
+        emailInput.focus();
+        emailInput.style.borderColor = "#d14343";
+        return;
+      }
+      emailInput.style.borderColor = "";
+      goTo(1);
+    });
+
+    optionGroups.forEach((group) => {
+      const nextBtn = group.parentElement.querySelector(".next");
+      group.querySelectorAll(".opt").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          group.querySelectorAll(".opt").forEach((option) => option.classList.remove("is-picked"));
+          btn.classList.add("is-picked");
+          answers[group.dataset.question] = Number(btn.dataset.score);
+          nextBtn.disabled = false;
+        });
+      });
+    });
+
+    document.querySelectorAll(".next").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const isLastQuestion = currentStep === 3;
+        if (isLastQuestion) {
+          showResult();
+          goTo(4);
+          fireConfetti();
+          return;
+        }
+        goTo(currentStep + 1);
+      });
+    });
+
+    restartBtn.addEventListener("click", () => {
+      Object.keys(answers).forEach((key) => delete answers[key]);
+      optionGroups.forEach((group) => {
+        group.querySelectorAll(".opt").forEach((btn) => btn.classList.remove("is-picked"));
+        const nextBtn = group.parentElement.querySelector(".next");
+        nextBtn.disabled = true;
+      });
+      confettiHost.innerHTML = "";
+      goTo(0);
+    });
+
+    function showResult() {
+      const total = (answers.q1 || 0) + (answers.q2 || 0) + (answers.q3 || 0);
+      scorePill.textContent = "Poäng: " + total + "/6";
+
+      if (total >= 5) {
+        resultCopy.textContent = "Du har rätt reflexer i pressade lägen. Du agerar snabbt, samlar rätt info och skyddar ditt djur innan det blir akut.";
+        return;
+      }
+      if (total >= 3) {
+        resultCopy.textContent = "Du är på god väg. Med lite mer koll på vad som är akut kan du bli riktigt vass när sekunderna räknas.";
+        return;
+      }
+      resultCopy.textContent = "Du bryr dig, men i akuta lägen behövs snabbare beslut. Bra nyhet: det går snabbt att träna upp den instinkten.";
+    }
+
+    function fireConfetti() {
+      confettiHost.innerHTML = "";
+      const colors = ["#f08700", "#ffcc80", "#f4a261", "#2a9d8f", "#264653"];
+      for (let i = 0; i < 36; i += 1) {
+        const bit = document.createElement("i");
+        bit.style.left = Math.random() * 100 + "%";
+        bit.style.top = (-20 - Math.random() * 120) + "px";
+        bit.style.background = colors[i % colors.length];
+        bit.style.transform = "rotate(" + Math.random() * 90 + "deg)";
+        bit.style.animationDelay = Math.random() * 0.2 + "s";
+        bit.style.animationDuration = (1 + Math.random() * 0.9) + "s";
+        confettiHost.appendChild(bit);
+      }
+    }
+  </script>
+</body>
+</html>
