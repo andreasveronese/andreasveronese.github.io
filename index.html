@@ -188,11 +188,18 @@
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
+      object-position: center;
       display: block;
       border-bottom: 1px solid var(--line);
       filter: grayscale(100%);
       transition: filter 260ms ease;
       background: #efefef;
+    }
+
+    .case-image--contain {
+      object-fit: contain;
+      padding: 0.8rem;
+      background: #fff;
     }
 
     .case:hover .case-image {
@@ -392,7 +399,7 @@
 
       <div class="cases" aria-label="Case galleri">
         <article class="case">
-          <img class="case-image" src="akademi.svg" alt="Case: Akademibokhandeln">
+          <img class="case-image case-image--contain" src="AKB_logo.svg" alt="Case: Akademibokhandeln">
           <div class="case-info">
             <span class="case-tag">Case inom SEO &amp; Content Marketing</span>
             <h3>Akademibokhandeln</h3>
@@ -410,7 +417,7 @@
         </article>
 
         <article class="case">
-          <img class="case-image" src="Fotografiska.svg" alt="Case: Fotografiska">
+          <img class="case-image case-image--contain" src="FG_LogoLockup_Stockholm_Black.svg?v=20260228b" alt="Case: Fotografiska">
           <div class="case-info">
             <span class="case-tag">Communication according to Berghs</span>
             <h3>Fotografiska</h3>
@@ -428,7 +435,7 @@
         </article>
 
         <article class="case">
-          <img class="case-image" src="UNDER YOUR SKIN.svg" alt="Case: Under Your Skin">
+          <img class="case-image" src="Under-Your-Skin-2500x1000.avif" alt="Case: Under Your Skin">
           <div class="case-info">
             <span class="case-tag">Case i CRO &amp; analys</span>
             <h3>Under Your Skin</h3>
