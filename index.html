@@ -304,6 +304,48 @@
       border-color: var(--ink);
     }
 
+    .tools {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .tool-link {
+      display: block;
+      text-decoration: none;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, #101010 0%, #2b2b2b 100%);
+      color: #f6f4ef;
+      padding: 1rem;
+      transition: transform 180ms ease, background 180ms ease;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-link:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(160deg, #000 0%, #1d1d1d 100%);
+    }
+
+    .tool-link strong {
+      display: block;
+      font-family: "Syne", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      color: #ffffff;
+    }
+
+    .tool-link span {
+      font-size: 0.9rem;
+      color: #e5e2dc;
+      display: block;
+      max-width: 70ch;
+    }
+
     @keyframes slide {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
@@ -338,6 +380,10 @@
     @media (max-width: 820px) {
       .case {
         grid-column: span 12;
+      }
+
+      .tools {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -476,14 +522,14 @@
 
     <section class="section">
       <div class="section-head">
-        <h2 class="section-title">Om Mig</h2>
+        <h2 class="section-title">Growth Tools</h2>
         <p class="section-number">03</p>
       </div>
-      <div class="about">
-        <h3>Growth med kreativ höjd och affärsfokus</h3>
-        <p>
-          
-        </p>
+      <div class="tools" aria-label="Klickbara tools">
+        <a class="tool-link" href="serp-opportunity-finder.html">
+          <strong>SEO Opportunity</strong>
+          <span>SERP Opportunity Finder med intent-analys, content gaps, opportunity score och content brief.</span>
+        </a>
       </div>
     </section>
 

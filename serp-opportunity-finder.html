@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SERP Opportunity Finder: SEO- och contentstrategi för att hitta sökdrivna tillväxtmöjligheter.">
+  <title>SERP Opportunity Finder | Andreas Veronese</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --ink: #0f0f0f;
+      --muted: #5d5d5d;
+      --line: #171717;
+      --panel: #fbfaf7;
+      --accent: #1f6f5d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    .wrap {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+      padding: 1.2rem 0 3rem;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid var(--line);
+      padding: 0.9rem 0;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .topbar a {
+      text-decoration: none;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+    }
+
+    .hero {
+      padding: 2rem 0 1.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      font-family: "Syne", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      font-size: clamp(2.1rem, 6vw, 4.8rem);
+      max-width: 12ch;
+    }
+
+    .hero p {
+      margin-top: 0.9rem;
+      max-width: 70ch;
+      color: #242424;
+    }
+
+    .section {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section h2 {
+      font-family: "Syne", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 1rem;
+    }
+
+    .card strong {
+      font-family: "Syne", sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.45rem;
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .list li {
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .list li::before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .toolbox {
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .toolbox form {
+      display: grid;
+      grid-template-columns: 2fr 1fr auto;
+      gap: 0.6rem;
+    }
+
+    input, select, button {
+      font: inherit;
+      border: 1px solid var(--line);
+      padding: 0.58rem 0.65rem;
+      background: #fff;
+    }
+
+    button {
+      background: var(--ink);
+      color: var(--bg);
+      cursor: pointer;
+      border-radius: 999px;
+      padding-inline: 1rem;
+    }
+
+    .output {
+      margin-top: 0.9rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.9rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .score {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: "Syne", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+    }
+
+    .badge {
+      background: #deefe8;
+      border: 1px solid #8dc8b4;
+      padding: 0.24rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+
+    .cta {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .cta a {
+      text-decoration: none;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 0.42rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbox form {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <p>Andreas Veronese / Portfolio Tool</p>
+      <a href="index.html">Tillbaka till portfolio</a>
+    </header>
+
+    <section class="hero">
+      <h1>SERP Opportunity Finder</h1>
+      <p>
+        Ett SEO- och contentstrategi-verktyg som identifierar tillväxtmöjligheter per sökord.
+        Fokus ligger på search intent, konkurrens, content gaps och en tydlig väg till produktion via färdig content brief.
+      </p>
+      <div class="cta">
+        <a href="#demo">Testa demo</a>
+        <a href="#funktioner">Se funktioner</a>
+      </div>
+    </section>
+
+    <section class="section" id="funktioner">
+      <h2>Vad Verktyget Gör</h2>
+      <div class="grid">
+        <article class="card">
+          <strong>Datainsamling</strong>
+          <ul class="list">
+            <li>Analyserar topp 10 organiska resultat i SERP.</li>
+            <li>Hämtar People Also Ask-frågor för intent mapping.</li>
+            <li>Identifierar featured snippets och formatkrav.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <strong>Analys &amp; Output</strong>
+          <ul class="list">
+            <li>Beräknar Opportunity Score per keyword.</li>
+            <li>Markerar content gaps mot konkurrenter.</li>
+            <li>Skapar en färdig content brief med rubrikstruktur och FAQ.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <h2>Interaktiv Demo</h2>
+      <div class="toolbox">
+        <form id="serp-form">
+          <input type="text" id="keyword" placeholder="Sökord, t.ex. 'bästa löparskor dam'" required>
+          <select id="market">
+            <option value="SE">SE</option>
+            <option value="NO">NO</option>
+            <option value="DK">DK</option>
+          </select>
+          <button type="submit">Analysera</button>
+        </form>
+        <p id="status" style="margin-top:0.7rem; font-size:0.9rem; color:#333;"></p>
+
+        <div class="output" id="output" hidden>
+          <p class="score">Opportunity Score <span class="badge" id="score">0/100</span></p>
+          <article class="card">
+            <strong>Varför?</strong>
+            <ul class="list" id="score-reasons"></ul>
+          </article>
+          <article class="card">
+            <strong>SERP Snapshot</strong>
+            <ul class="list" id="serp-snapshot"></ul>
+          </article>
+          <article class="card">
+            <strong>Topp 10 Resultat</strong>
+            <ul class="list" id="top-results"></ul>
+          </article>
+          <article class="card">
+            <strong>Content Gaps</strong>
+            <ul class="list" id="content-gaps"></ul>
+          </article>
+          <article class="card">
+            <strong>Content Brief</strong>
+            <ul class="list" id="content-brief"></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById("serp-form");
+    const output = document.getElementById("output");
+    const scoreEl = document.getElementById("score");
+    const scoreReasonsEl = document.getElementById("score-reasons");
+    const serpSnapshotEl = document.getElementById("serp-snapshot");
+    const topResultsEl = document.getElementById("top-results");
+    const contentGapsEl = document.getElementById("content-gaps");
+    const contentBriefEl = document.getElementById("content-brief");
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const keyword = document.getElementById("keyword").value.trim();
+      const market = document.getElementById("market").value;
+      const statusEl = document.getElementById("status");
+      const submitButton = form.querySelector("button[type='submit']");
+
+      statusEl.textContent = "Analyserar SERP-data...";
+      submitButton.disabled = true;
+
+      scoreReasonsEl.innerHTML = "";
+      serpSnapshotEl.innerHTML = "";
+      topResultsEl.innerHTML = "";
+      contentGapsEl.innerHTML = "";
+      contentBriefEl.innerHTML = "";
+      output.hidden = true;
+
+      try {
+        const response = await fetch("/api/seo/opportunity", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ keyword, market })
+        });
+
+        const raw = await response.text();
+        let data = null;
+        try {
+          data = raw ? JSON.parse(raw) : null;
+        } catch (_error) {
+          throw new Error("Ogiltigt API-svar (" + response.status + ").");
+        }
+
+        if (!response.ok) {
+          throw new Error((data && data.error) || ("Kunde inte analysera keyword (" + response.status + ")"));
+        }
+        if (!data) {
+          throw new Error("Tomt API-svar från backend.");
+        }
+
+        scoreEl.textContent = data.opportunityScore + "/100";
+
+        const reasonItems = data.scoreReasons && data.scoreReasons.length
+          ? data.scoreReasons
+          : ["Inga score-justeringar triggades, basvärde 50 användes."];
+
+        const snapshotItems = [
+          "Featured snippet: " + (data.featuredSnippet.exists ? "Ja (" + (data.featuredSnippet.type || "okänd typ") + ")" : "Nej"),
+          "People Also Ask: " + data.peopleAlsoAskCount,
+          "Annonser: " + data.adsCount,
+          "Blog/guide-resultat: " + data.serpSummary.blogGuideCount,
+          "Varumärken/e-commerce: " + data.serpSummary.brandOrEcommerceCount
+        ];
+
+        const briefItems = [
+          "H1: " + data.contentBrief.h1,
+          ...data.contentBrief.h2.map(function (heading) { return "H2: " + heading; }),
+          ...data.contentBrief.faq.map(function (question) { return "FAQ: " + question; }),
+          "CTA: " + data.contentBrief.cta
+        ];
+
+        reasonItems.forEach(function (text) {
+          const li = document.createElement("li");
+          li.textContent = text;
+          scoreReasonsEl.appendChild(li);
+        });
+
+        snapshotItems.forEach(function (text) {
+          const li = document.createElement("li");
+          li.textContent = text;
+          serpSnapshotEl.appendChild(li);
+        });
+
+        data.topResults.forEach(function (result, index) {
+          const li = document.createElement("li");
+          li.textContent = (index + 1) + ". " + result.title + " (" + result.domain + ")";
+          topResultsEl.appendChild(li);
+        });
+
+        data.contentGaps.forEach(function (gap) {
+          const li = document.createElement("li");
+          li.textContent = gap;
+          contentGapsEl.appendChild(li);
+        });
+
+        briefItems.forEach(function (text) {
+          const li = document.createElement("li");
+          li.textContent = text;
+          contentBriefEl.appendChild(li);
+        });
+
+        output.hidden = false;
+        statusEl.textContent = "Klart.";
+      } catch (error) {
+        statusEl.textContent = "Fel: " + error.message;
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
