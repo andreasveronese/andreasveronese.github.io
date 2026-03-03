@@ -310,6 +310,25 @@
       gap: 1rem;
     }
 
+    .tools-intro {
+      margin-bottom: 0.9rem;
+      max-width: 75ch;
+      color: #232323;
+      font-size: 0.96rem;
+    }
+
+    .tool-subsection {
+      margin-top: 1.1rem;
+    }
+
+    .tool-subtitle {
+      font-family: "Syne", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      margin-bottom: 0.65rem;
+    }
+
     .tool-link {
       display: block;
       text-decoration: none;
@@ -344,6 +363,125 @@
       color: #e5e2dc;
       display: block;
       max-width: 70ch;
+    }
+
+    .leadmagnet {
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #0f0f0f 0%, #1e1e1e 65%, #2b2b2b 100%);
+      border-radius: 18px;
+      padding: clamp(1.2rem, 3vw, 2rem);
+      color: #f6f4ef;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .leadmagnet::after {
+      content: "";
+      position: absolute;
+      inset: auto -70px -70px auto;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(246, 244, 239, 0.3);
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .leadmagnet-copy h3 {
+      font-family: "Syne", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+      line-height: 1.05;
+      margin-bottom: 0.45rem;
+    }
+
+    .leadmagnet-copy p {
+      color: #e8e5dd;
+      max-width: 52ch;
+      font-size: 0.95rem;
+    }
+
+    .leadmagnet-points {
+      margin-top: 0.8rem;
+      list-style: none;
+      display: grid;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      color: #d8d4ca;
+    }
+
+    .leadmagnet-form {
+      align-self: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 14px;
+      padding: 0.95rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .leadmagnet-form label {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d8d4ca;
+      margin-bottom: 0.45rem;
+    }
+
+    .leadmagnet-form input {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(15, 15, 15, 0.7);
+      border-radius: 10px;
+      color: #fff;
+      padding: 0.72rem 0.85rem;
+      font: inherit;
+      margin-bottom: 0.55rem;
+    }
+
+    .leadmagnet-form input::placeholder {
+      color: #b9b4a9;
+    }
+
+    .leadmagnet-form button,
+    .leadmagnet-download {
+      width: 100%;
+      border: 1px solid #f6f4ef;
+      border-radius: 999px;
+      background: #f6f4ef;
+      color: #101010;
+      font-family: "Syne", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 0.78rem;
+      padding: 0.68rem 0.95rem;
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .leadmagnet-form button:hover,
+    .leadmagnet-download:hover {
+      transform: translateY(-2px);
+      background: transparent;
+      color: #f6f4ef;
+    }
+
+    .leadmagnet-download {
+      margin-top: 0.55rem;
+      display: none;
+    }
+
+    .leadmagnet-status {
+      margin-top: 0.45rem;
+      min-height: 1.2em;
+      font-size: 0.82rem;
+      color: #e6e1d7;
     }
 
     @keyframes slide {
@@ -383,6 +521,10 @@
       }
 
       .tools {
+        grid-template-columns: 1fr;
+      }
+
+      .leadmagnet {
         grid-template-columns: 1fr;
       }
     }
@@ -522,14 +664,47 @@
 
     <section class="section">
       <div class="section-head">
-        <h2 class="section-title">Growth Tools</h2>
+        <h2 class="section-title">Growth Tools Developed by Me</h2>
         <p class="section-number">03</p>
       </div>
-      <div class="tools" aria-label="Klickbara tools">
-        <a class="tool-link" href="serp-opportunity-finder.html">
-          <strong>SEO Opportunity</strong>
-          <span>SERP Opportunity Finder med intent-analys, content gaps, opportunity score och content brief.</span>
-        </a>
+
+      <p class="tools-intro">
+        Två verktyg jag har utvecklat för att skapa snabbare analys, bättre beslutsunderlag och tydligare tillväxtmöjligheter.
+      </p>
+
+      <div class="tool-subsection">
+        <h3 class="tool-subtitle">SEO Opportunity Finder</h3>
+        <div class="tools" aria-label="Klickbara tools">
+          <a class="tool-link" href="serp-opportunity-finder.html">
+            <strong>SEO Opportunity Finder</strong>
+            <span>SERP Opportunity Finder med intent-analys, content gaps, opportunity score och content brief.</span>
+            <span>Powered by SerpAPI och OpenAI API.</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="tool-subsection" id="smart-deal-finder">
+        <h3 class="tool-subtitle">Smart Deal Finder</h3>
+        <article class="leadmagnet" aria-label="Leadmagnet för browser plugin">
+          <div class="leadmagnet-copy">
+            <h3>Få access till Smart Deal Finder</h3>
+            <p>
+              Smart Deal Finder analyserar produkten du tittar på och visar snabbt relevanta alternativ, så att du kan jämföra smartare och hitta bättre köp på sekunder.
+            </p>
+            <ul class="leadmagnet-points">
+              <li>Hittar liknande alternativ direkt i browsern</li>
+              <li>Jämför pris och relevans på några sekunder</li>
+              <li>Hjälper dig fatta snabbare köpbeslut</li>
+            </ul>
+          </div>
+          <form class="leadmagnet-form" id="leadmagnet-form" novalidate>
+            <label for="lead-email">Din e-postadress</label>
+            <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="namn@företag.se" required>
+            <button type="submit">Lås upp Smart Deal Finder</button>
+            <a class="leadmagnet-download" id="leadmagnet-download" href="assets/browser-plugin.zip" download>Ladda ner Smart Deal Finder (.zip)</a>
+            <p class="leadmagnet-status" id="leadmagnet-status" aria-live="polite"></p>
+          </form>
+        </article>
       </div>
     </section>
 
@@ -546,6 +721,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   
   var linkedinLink = document.getElementById("linkedin-link");
+  var leadForm = document.getElementById("leadmagnet-form");
+  var leadEmail = document.getElementById("lead-email");
+  var leadStatus = document.getElementById("leadmagnet-status");
+  var leadDownload = document.getElementById("leadmagnet-download");
   
   if (linkedinLink) {
     linkedinLink.addEventListener("click", function () {
@@ -559,6 +738,36 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       
       console.log("LinkedIn click tracked");
+    });
+  }
+
+  if (leadForm && leadEmail && leadStatus && leadDownload) {
+    leadForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var email = leadEmail.value.trim();
+      var isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (!isValidEmail) {
+        leadStatus.textContent = "Ange en giltig e-postadress för att fortsätta.";
+        leadDownload.style.display = "none";
+        return;
+      }
+
+      try {
+        localStorage.setItem("leadmagnet_email", email);
+      } catch (error) {
+        console.warn("Could not save lead email in localStorage", error);
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "leadmagnet_unlock",
+        email_domain: email.split("@")[1] || ""
+      });
+
+      leadStatus.textContent = "Klart. Smart Deal Finder är nu upplåst.";
+      leadDownload.style.display = "inline-block";
     });
   }
 
